@@ -1,0 +1,13 @@
+import { createAction, createReducer, on } from "@ngrx/store";
+
+export const productReducer=createReducer(
+  { showProductCode: true },
+  on(createAction('[Product] Toggle Product Code'), state => {
+    console.log('originate state: ' + JSON.stringify(state.showProductCode))
+    return {
+      ...state,
+      showProductCode: !state.showProductCode
+      // showProductCode: state.showProductCode = false,
+    };
+  })
+);
